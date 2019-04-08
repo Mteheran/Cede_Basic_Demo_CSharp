@@ -8,6 +8,9 @@ namespace Cede_Basic_Demo_CSharp
 {
     class Program
     {
+        public const long BillionsAndBillions = 100_000_000_000;
+        public const double BillionsAndBillions2 = 100_000_000_000.22_22_22;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hola clase");
@@ -54,9 +57,33 @@ namespace Cede_Basic_Demo_CSharp
                 Console.WriteLine("stringNullable es vacio");
             }
 
+            string message = "La fecha actual es";
+
+            
+            message = AddDate(message);
+
+            AddDate(ref message);
+
+            Console.WriteLine(message);
+
+            //var name = (first: "one", second: "two");
+            //name.first
+            //name.second
+
+
 
 
             Console.ReadKey();
+        }
+
+        private static void AddDate(ref string Parameter)
+        {
+            Parameter = $"{Parameter} - {DateTime.Now.ToString("yyyyMMdd")}";
+        }
+
+        private static string AddDate(string Parameter)
+        {
+            return $"{Parameter} - {DateTime.Now.ToString("yyyyMMdd")}";
         }
     }
 }

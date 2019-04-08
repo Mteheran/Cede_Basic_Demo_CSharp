@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cede_Basic_Events.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace Cede_Basic_Events.Models
 {
     public class Event
     {
+        public Guid EventId { get; set; }
+        public Guid PersonalId { get; set; }
+
         //encapsulamiento
         private string name { get; set; }
         public string Name
@@ -23,6 +27,10 @@ namespace Cede_Basic_Events.Models
         }
 
         public string Description { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime EventDate { get; set; }
+        public DateTime DateCreated { get; set; }
+        public bool IsPrivate { get; set; }
+        public bool IsDelete { get; set; }
+        public EventStatus? Status { get; set; }
     }
 }

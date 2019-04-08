@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Basic_Demo_CSharp", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Basic_Events", "Cede_Basic_Events\Cede_Basic_Events.csproj", "{12764880-E7A2-4027-944D-FB3397ABD9B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cede_Basic_Events_Data", "Cede_Basic_Events_Data\Cede_Basic_Events_Data.csproj", "{678F57E9-A5D8-44E0-B472-4D436E49D9BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{12764880-E7A2-4027-944D-FB3397ABD9B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12764880-E7A2-4027-944D-FB3397ABD9B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12764880-E7A2-4027-944D-FB3397ABD9B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678F57E9-A5D8-44E0-B472-4D436E49D9BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678F57E9-A5D8-44E0-B472-4D436E49D9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678F57E9-A5D8-44E0-B472-4D436E49D9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678F57E9-A5D8-44E0-B472-4D436E49D9BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
