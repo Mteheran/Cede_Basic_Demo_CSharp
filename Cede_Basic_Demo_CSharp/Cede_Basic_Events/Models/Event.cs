@@ -31,6 +31,6 @@ namespace Cede_Basic_Events.Models
         public DateTime DateCreated { get; set; }
         public bool IsPrivate { get; set; }
         public bool IsDelete { get; set; }
-        public EventStatus? Status { get; set; }
+        public EventStatus Status { get; set; }
     }
 }

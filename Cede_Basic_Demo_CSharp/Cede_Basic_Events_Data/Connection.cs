@@ -28,5 +28,29 @@ namespace Cede_Basic_Events_Data
 
             return dataTable;
         }
+
+        public bool ExecuteQuery(string query)
+        {
+            sqlConnection.Open();
+
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+
+                sqlCommand.CommandType = CommandType.Text;
+
+                sqlCommand.ExecuteNonQuery();               
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
     }
 }

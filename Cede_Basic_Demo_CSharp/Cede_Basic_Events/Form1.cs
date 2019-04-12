@@ -1,4 +1,5 @@
 ﻿using Cede_Basic_Events.Data;
+using Cede_Basic_Events.Data.Interfaces;
 using Cede_Basic_Events.Models;
 using System;
 using System.Collections.Generic;
@@ -16,13 +17,13 @@ namespace Cede_Basic_Events
     {
         
         public Guid IdEditing { get; set; } = Guid.Empty;
-        public EventManagerFile EventManager { get; set; } = new EventManagerFile();
-        public PersonalDataDB personalDataDB { get; set; } = new PersonalDataDB();
+        public IPersonalData personalDataDB { get; set; } = new PersonalDataFile();
+        public IEventData eventDataDB { get; set; } = new EventDataFile();
 
         public Form1()
         {             
             InitializeComponent();
-            //gridEvents.DataSource = EventManager.Events;
+            gridEvents.DataSource = eventDataDB.GetEvents();
             cboPersonal.DataSource = personalDataDB.GetPersonals();
         }
 
@@ -90,20 +91,21 @@ namespace Cede_Basic_Events
 
             if (IdEditing== Guid.Empty)
             {
-                objevent.EventId = Guid.NewGuid();
-                EventManager.AddEvent(objevent);
+                //objevent.EventId = Guid.NewGuid();
+                //EventManager.AddEvent(objevent);
             }
             else
             {
                 objevent.EventId = IdEditing;
-                EventManager.EditEvent(IdEditing, objevent);
+                eventDataDB.UpdateEvent(objevent);
+                //EventManager.EditEvent(IdEditing, objevent);
             }
            
 
             ClearValues();
             ClearAllValues();
 
-            gridEvents.DataSource = EventManager.Events.ToList();
+            gridEvents.DataSource = eventDataDB.GetEvents().ToList();
 
             lblMessage.ForeColor = Color.Green;
             lblMessage.Text = "Registro guardado";
@@ -124,11 +126,11 @@ namespace Cede_Basic_Events
 
             if (string.IsNullOrEmpty(textSearch)) return;
 
-            var result = EventManager.Events.
-                         Where(p => p.Name.ToLower().Contains(textSearch) || 
-                                    p.Description.ToLower().Contains(textSearch)).ToList();
+            //var result = EventManager.Events.
+            //             Where(p => p.Name.ToLower().Contains(textSearch) || 
+            //                        p.Description.ToLower().Contains(textSearch)).ToList();
 
-            gridResults.DataSource = result;
+            //gridResults.DataSource = result;
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -175,11 +177,27 @@ namespace Cede_Basic_Events
                     dialogResult.ToString().Equals("Yes"))
                 {
                     var Item = (Event)gridEvents.SelectedRows[0].DataBoundItem;
-                    EventManager.DeleteEvent(Item.EventId);
-                    gridEvents.DataSource = EventManager.Events.ToList();
+                    //EventManager.DeleteEvent(Item.EventId);
+                    //gridEvents.DataSource = EventManager.Events.ToList();
                     lblMessage.Text = "Registro Eliminado";
                 }               
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            personalDataDB  = new PersonalDataDB();
+            eventDataDB  = new EventDataDB();
+            gridEvents.DataSource = eventDataDB.GetEvents();
+            cboPersonal.DataSource = personalDataDB.GetPersonals();
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            personalDataDB = new PersonalDataFile();
+            eventDataDB = new EventDataFile();
+            gridEvents.DataSource = eventDataDB.GetEvents();
+            cboPersonal.DataSource = personalDataDB.GetPersonals();
         }
     }
 }

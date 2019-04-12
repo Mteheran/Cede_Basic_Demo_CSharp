@@ -1,4 +1,5 @@
-﻿using Cede_Basic_Events.Models;
+﻿using Cede_Basic_Events.Data.Interfaces;
+using Cede_Basic_Events.Models;
 using Cede_Basic_Events_Data;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cede_Basic_Events.Data
 {
-    public class PersonalDataDB
+    public class PersonalDataDB : IPersonalData
     {
         public List<Personal> GetPersonals()
         {

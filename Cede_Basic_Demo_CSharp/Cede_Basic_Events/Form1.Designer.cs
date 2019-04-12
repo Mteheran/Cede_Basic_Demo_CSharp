@@ -37,6 +37,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.gridEvents = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboPersonal = new System.Windows.Forms.ComboBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.chkPrivate = new System.Windows.Forms.CheckBox();
@@ -48,8 +50,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cboPersonal = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEvents)).BeginInit();
@@ -64,9 +66,9 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.gridEvents);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 551);
+            this.groupBox1.Size = new System.Drawing.Size(554, 516);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -144,12 +146,31 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(572, 12);
+            this.groupBox2.Location = new System.Drawing.Point(572, 47);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(482, 551);
+            this.groupBox2.Size = new System.Drawing.Size(482, 516);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Organizador";
+            // 
+            // cboPersonal
+            // 
+            this.cboPersonal.DisplayMember = "Name";
+            this.cboPersonal.FormattingEnabled = true;
+            this.cboPersonal.Location = new System.Drawing.Point(117, 99);
+            this.cboPersonal.Name = "cboPersonal";
+            this.cboPersonal.Size = new System.Drawing.Size(200, 21);
+            this.cboPersonal.TabIndex = 10;
+            this.cboPersonal.ValueMember = "PersonalId";
             // 
             // btnCancel
             // 
@@ -239,30 +260,37 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // cboPersonal
+            // radioButton1
             // 
-            this.cboPersonal.DisplayMember = "Name";
-            this.cboPersonal.FormattingEnabled = true;
-            this.cboPersonal.Location = new System.Drawing.Point(117, 99);
-            this.cboPersonal.Name = "cboPersonal";
-            this.cboPersonal.Size = new System.Drawing.Size(200, 21);
-            this.cboPersonal.TabIndex = 10;
-            this.cboPersonal.ValueMember = "PersonalId";
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(28, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(93, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Base de datos";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // label4
+            // radioButton2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 107);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Organizador";
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(135, 13);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(80, 17);
+            this.radioButton2.TabIndex = 3;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "En memoria";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 591);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -274,6 +302,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -300,6 +329,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboPersonal;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
 

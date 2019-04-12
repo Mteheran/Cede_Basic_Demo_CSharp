@@ -46,8 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\EventDataDB.cs" />
     <Compile Include="Data\EventDataFile.cs" />
+    <Compile Include="Data\Interfaces\IEventData.cs" />
+    <Compile Include="Data\Interfaces\IPersonalData.cs" />
     <Compile Include="Data\PersonalDataDB.cs" />
+    <Compile Include="Data\PersonalDataFile.cs" />
     <Compile Include="Enums\EventStatus.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
