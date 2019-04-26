@@ -23,6 +23,8 @@ namespace Cede_Basic_Events
         public Form1()
         {             
             InitializeComponent();
+            personalDataDB = DataFactory.CreatePersonalData(Enums.SourceData.DataBase);
+            eventDataDB = DataFactory.CreateEventData(Enums.SourceData.DataBase);
             gridEvents.DataSource = eventDataDB.GetEvents();
             cboPersonal.DataSource = personalDataDB.GetPersonals();
         }
@@ -186,16 +188,16 @@ namespace Cede_Basic_Events
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            personalDataDB  = new PersonalDataDB();
-            eventDataDB  = new EventDataDB();
+            personalDataDB = DataFactory.CreatePersonalData(Enums.SourceData.DataBase);
+            eventDataDB = DataFactory.CreateEventData(Enums.SourceData.DataBase);
             gridEvents.DataSource = eventDataDB.GetEvents();
-            cboPersonal.DataSource = personalDataDB.GetPersonals();
+            cboPersonal.DataSource = personalDataDB.GetPersonals();           
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            personalDataDB = new PersonalDataFile();
-            eventDataDB = new EventDataFile();
+            personalDataDB = DataFactory.CreatePersonalData(Enums.SourceData.Memory);
+            eventDataDB = DataFactory.CreateEventData(Enums.SourceData.Memory);
             gridEvents.DataSource = eventDataDB.GetEvents();
             cboPersonal.DataSource = personalDataDB.GetPersonals();
         }
