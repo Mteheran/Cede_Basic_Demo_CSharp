@@ -17,8 +17,8 @@ namespace Cede_Basic_Events
     {
         
         public Guid IdEditing { get; set; } = Guid.Empty;
-        public IPersonalData personalDataDB { get; set; } = new PersonalDataFile();
-        public IEventData eventDataDB { get; set; } = new EventDataFile();
+        public IPersonalData personalDataDB { get; set; }
+        public IEventData eventDataDB { get; set; }
 
         public Form1()
         {             
@@ -186,20 +186,25 @@ namespace Cede_Basic_Events
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            personalDataDB = DataFactory.CreatePersonalData(Enums.SourceData.DataBase);
-            eventDataDB = DataFactory.CreateEventData(Enums.SourceData.DataBase);
-            gridEvents.DataSource = eventDataDB.GetEvents();
-            cboPersonal.DataSource = personalDataDB.GetPersonals();           
-        }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            personalDataDB = DataFactory.CreatePersonalData(Enums.SourceData.Memory);
-            eventDataDB = DataFactory.CreateEventData(Enums.SourceData.Memory);
+            var radio = (RadioButton)sender;
+
+            if (radio.Name == "rdDB")
+            {
+                personalDataDB = radio.Name == "rdDB" ? DataFactory.CreatePersonalData(Enums.SourceData.DataBase) : null;
+                eventDataDB = radio.Name == "rdDB" ?  DataFactory.CreateEventData(Enums.SourceData.DataBase) : null;
+            }
+            else if(radio.Name == "rdMemory")
+            {
+                personalDataDB = DataFactory.CreatePersonalData(Enums.SourceData.Memory);
+                eventDataDB = DataFactory.CreateEventData(Enums.SourceData.Memory);
+            }
+           
             gridEvents.DataSource = eventDataDB.GetEvents();
             cboPersonal.DataSource = personalDataDB.GetPersonals();
         }
+
     }
 }

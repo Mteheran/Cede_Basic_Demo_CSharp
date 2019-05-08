@@ -50,8 +50,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdDB = new System.Windows.Forms.RadioButton();
+            this.rdMemory = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridResults)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridEvents)).BeginInit();
@@ -260,37 +260,37 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // radioButton1
+            // rdDB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(28, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(93, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Base de datos";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rdDB.AutoSize = true;
+            this.rdDB.Checked = true;
+            this.rdDB.Location = new System.Drawing.Point(28, 12);
+            this.rdDB.Name = "rdDB";
+            this.rdDB.Size = new System.Drawing.Size(93, 17);
+            this.rdDB.TabIndex = 2;
+            this.rdDB.TabStop = true;
+            this.rdDB.Text = "Base de datos";
+            this.rdDB.UseVisualStyleBackColor = true;
+            this.rdDB.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // radioButton2
+            // rdMemory
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(135, 13);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.Text = "En memoria";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.rdMemory.AutoSize = true;
+            this.rdMemory.Location = new System.Drawing.Point(135, 13);
+            this.rdMemory.Name = "rdMemory";
+            this.rdMemory.Size = new System.Drawing.Size(80, 17);
+            this.rdMemory.TabIndex = 3;
+            this.rdMemory.Text = "En memoria";
+            this.rdMemory.UseVisualStyleBackColor = true;
+            this.rdMemory.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 591);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rdMemory);
+            this.Controls.Add(this.rdDB);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -329,8 +329,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboPersonal;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdDB;
+        private System.Windows.Forms.RadioButton rdMemory;
     }
 }
 
